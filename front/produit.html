@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="fr" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="img/favicon.ico">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
+
+	<!--Primary meta tags-->
+	<title>Orinoco - Produit</title>
+	<meta name="description" content="Orinoco, entreprise de e-commerce. Notre objectif : proposer des aplications thématiques avec un seul type de produits. ">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://alexistisserand.github.io/AlexisTisserand_5_18012021/">
+	<meta property="og:title" content="Produit - Orinoco">
+	<meta property="og:description" content="Orinoco, entreprise de e-commerce. Notre objectif : proposer des aplications thématiques avec un seul type de produits.">
+	<meta property="og:image" content="https://alexistisserand.github.io/AlexisTisserand_5_18012021/img/logo_orinoco.png">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://alexistisserand.github.io/AlexisTisserand_5_18012021/">
+	<meta property="twitter:title" content="Produit - Orinoco">
+	<meta property="twitter:description" content="Orinoco, entreprise de e-commerce. Notre objectif : proposer des aplications thématiques avec un seul type de produits.">
+	<meta property="twitter:image" content="https://alexistisserand.github.io/AlexisTisserand_5_18012021/img/logo_orinoco.png">
+</head>			
+
+<body>
+	<!--HEADER-->
+	<header>
+		<div class="logo">
+			<a href="index.html">
+				<h1>				
+					<img src="img/logo_no_background.png" alt="Logo Orinoco">
+				</h1>
+			</a>
+		</div>
+		<nav class="navbar">
+			<ul class="navbar-cart">
+				<li id="panier">
+					<a href="./cart.html">Panier</a>
+				</li>
+				<li class="navbar-cart--icon">
+					<a href="./cart.html"><i class="fas fa-shopping-cart"></i></a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<!--PRODUCT-->
+	<div id="productDatasList">
+		<img id="productImage" src="" width="500px" height="480px">
+		<div id="description">
+			<h2 id="productName"></h2>
+			<h3 id="productDescription"></h3>
+		</div>
+		<div id="choix">
+			<div id="productColors"></div>
+			<p id="productPrice"></p>
+			<input id="addToCart" type="button" onclick="location.href='panier.html'" value="Ajouter au panier"></button>
+		</div>
+	</div>
+	
+	<!--FOOTER-->
+	<footer>
+		<img src="img/logo_no_background.png" alt="Logo Orinoco">
+	</footer>
+
+	<!--SCRIPTS-->
+	<script type="module" src="js/api.js"></script>
+    <script  type="module" src="js/products.js"></script>
+</body>

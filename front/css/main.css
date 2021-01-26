@@ -1,0 +1,216 @@
+/*CSS PAGE ACCUEIL*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900");
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  background-color: white;
+  font-family: "Roboto";
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #f3e9f1;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+header .navbar {
+  align-self: center;
+  transition: transform 200ms ease-in-out;
+}
+header .navbar:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+header .navbar-cart {
+  display: flex;
+  flex-direction: row;
+}
+
+#panier {
+  font-family: "belligerent_madnessregular";
+}
+
+#title-teddies fieldset {
+  border-top: solid #f3e9f1 2px;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+#title-teddies fieldset legend {
+  text-align: center;
+  padding: 0 20px;
+  font-size: 2rem;
+  font-family: "belligerent_madnessregular", "Roboto";
+}
+
+#productList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px 20px;
+  margin: 10px 20px 10px 20px;
+}
+
+#productLink {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1.7fr 0.3fr;
+  gap: 0px 0px;
+  background-color: #f3e9f1;
+  transition: transform 200ms ease-in-out;
+  cursor: pointer;
+  padding: 10px;
+}
+#productLink:hover {
+  transform: scale(1.05);
+}
+#productLink #productLink {
+  grid-area: 1/1/3/4;
+}
+#productLink #productImage {
+  grid-area: 1/1/2/4;
+  width: -webkit-fill-available;
+  padding: 1rem;
+}
+#productLink #productName {
+  grid-area: 2/1/3/2;
+}
+#productLink #productPrice {
+  grid-area: 2/2/3/3;
+}
+#productLink .btn-product {
+  grid-area: 2/3/3/4;
+  cursor: pointer;
+}
+
+.newsletter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.4fr 1.6fr;
+  gap: 0px 0px;
+  grid-area: 2/3/3/4;
+}
+.newsletter .email {
+  grid-area: 1/1/2/4;
+}
+.newsletter .fab {
+  align-self: center;
+}
+
+/*
+.productList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px 20px;
+}
+
+.product {
+    background-color: $primary;
+
+    &-0 {
+        display: grid;
+        grid-template-columns: 1.5fr 0.5fr;
+        grid-template-rows: 1.5fr 0.5fr;
+        gap: 0px 0px;
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    &-1 {
+        @extend .grid-products;
+        grid-area: 1 / 2 / 2 / 3;
+    }
+    &-2 {
+        @extend .grid-products;
+        grid-area: 1 / 3 / 2 / 4;
+    }
+    &-3 {
+        @extend .grid-products;
+        grid-area: 2 / 1 / 3 / 2;
+    }
+    &-4 {
+        @extend .grid-products;
+        grid-area: 2 / 2 / 3 / 3;
+    }
+
+}
+
+.productImage {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.productName {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.productLink {
+    grid-area: 2 / 1 / 2 / 2 ;
+}
+
+.productPrice {
+    grid-area: 2 / 2 / 3 / 3;
+}
+*/
+#product {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px 20px;
+}
+#product #productImage {
+  grid-area: 1/1/3/2;
+}
+#product #description {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-area: 1/2/2/3;
+}
+#product #description #productName {
+  grid-area: 1/1/2/2;
+}
+#product #description #productDescription {
+  grid-area: 2/1/3/2;
+}
+#product #choix {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-area: 2/2/3/3;
+}
+#product #choix #panier {
+  grid-area: 2/1/3/2;
+}
+#product #choix #productColors {
+  grid-area: 1/1/2/2;
+}
+
+@font-face {
+  font-family: "belligerent_madnessregular";
+  src: url("/fonts/Belligerent-Madness/belligerent_madnessregular.eot");
+  src: url("/fonts/Belligerent-Madnessbelligerent_madnessregular.eot?#iefix") format("embedded-opentype"), url("/fonts/Belligerent-Madness/belligerent_madnessregular.woff2") format("woff2"), url("/fonts/Belligerent-Madness/belligerent_madnessregular.woff") format("woff"), url("/fonts/Belligerent-Madness/belligerent_madnessregular.ttf") format("truetype"), url("/fonts/Belligerent-Madness/belligerent_madnessregular.svg#belligerent_madnessregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.grid-products {
+  display: grid;
+  grid-template-columns: 1.5fr 0.5fr;
+  grid-template-rows: 1.5fr 0.5fr;
+  gap: 0px 0px;
+}
+
+/*# sourceMappingURL=main.css.map */
