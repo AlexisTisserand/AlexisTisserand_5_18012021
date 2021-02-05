@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="img/favicon.ico">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+
+
+	<!--Primary meta tags-->
+	<title>Orinoco - Panier</title>
+	<meta name="description" content="Orinoco, entreprise de e-commerce. Notre objectif : proposer des aplications thématiques avec un seul type de produits. ">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://alexistisserand.github.io/AlexisTisserand_5_18012021/">
+	<meta property="og:title" content="Panier - Orinoco">
+	<meta property="og:description" content="Orinoco, entreprise de e-commerce. Notre objectif : proposer des aplications thématiques avec un seul type de produits.">
+	<meta property="og:image" content="https://alexistisserand.github.io/AlexisTisserand_5_18012021/img/logo_orinoco.png">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://alexistisserand.github.io/AlexisTisserand_5_18012021/">
+	<meta property="twitter:title" content="Panier - Orinoco">
+	<meta property="twitter:description" content="Orinoco, entreprise de e-commerce. Notre objectif : proposer des aplications thématiques avec un seul type de produits.">
+	<meta property="twitter:image" content="https://alexistisserand.github.io/AlexisTisserand_5_18012021/img/logo_orinoco.png">
+</head>			
+
+<body>
+
+    <header id="header-cart">
+		<div class="logo">
+			<a href="index.html">
+				<h1>				
+					<img src="img/logo_no_background.png" alt="Logo Orinoco">
+				</h1>
+			</a>
+		</div>
+		<nav class="navbar">
+			<ul class="navbar-cart">
+				<li id="panier">
+					<a href="./index.html">Accueil</a>
+                </li>
+			</ul>
+		</nav>
+    </header>
+
+    <h2 id="your-cart">Votre panier</h2>
+
+
+    <!--<section id="products-container">
+        <div class="product-header">
+            <h4 class="product-title">PRODUIT</h4>
+            <h4 class="product-style">NOM</h4>
+            <h4 class="product-style">PRIX</h4>
+            <h4 class="product-style">QUANTITÉ</h4>
+            <h4 class="total-price"> TOTAL</h4>
+        </div>
+        <div id="products"></div>
+        <div id="total-panier"></div>
+        
+    </section>-->
+    <div class="shopping-cart">
+        <div id="products">
+            <div class="column-labels">
+                <label class="product-image">Image</label>
+                <label class="product-details">Produit</label>
+                <label class="product-price">Prix</label>
+                <label class="product-quantity">Quantité</label>
+                <label class="product-removal">Supprimer</label>
+                <label class="product-line-price">Total</label>
+            </div>
+        </div>
+    </div>
+
+    <div id="total-basket"></div>  
+    <a id="link-btn" href=""><button id="btn-delete"></button></a> 
+
+    <section id="formulaire-contact">
+        <form class="container-form">
+            <h3>Passez commande</h3>
+            <div class="formulaire-texte">
+                <label for="firstName" class="label">Prénom</label>
+                <input type="text" name="firstName" id="firstName" class="input">
+            </div>
+            <div class="formulaire-texte">
+                <label for="lastName" class="label">Nom</label>
+                <input type="text" name="lastName" id="lastName" class="input">
+            </div>
+            <div class="formulaire-texte">
+                <label for="email" class="label">Adresse e-mail</label>
+                <input type="text" name="email" id="email" class="input">
+            </div>
+            <div class="formulaire-texte">
+                <label for="adress" class="label">Adresse</label>
+                <input type="text" name="adress" id="adress" class="input">
+            </div>
+            <div class="formulaire-texte">
+                <label for="zipCode" class="label">Code postal</label>
+                <input type="text" name="zipCode" id="zipCode" class="input">
+            </div>
+            <div class="formulaire-texte">
+                <label for="city" class="label">Ville</label>
+                <input type="text" name="city" id="city" class="input">
+            </div>
+            <a id="btn-paiement" href="#">Procéder au paiement</a>
+        </form>
+    </section>
+
+    <!--FOOTER-->
+	<footer>
+		<div id="div-footer">
+			<ul id="ul-footer">
+				<li><a class="social-network-link" href="https://twitter.com/orinoco">Twitter</a></li>
+				<li><a class="social-network-link" href="https://facebook.com/orinoco">Facebook</a></li>
+				<li><a class="social-network-link" href="mailto:contact@orinoco.com">Email</a></li>
+				<li><a class="social-network-link" href="https://instagram.com/orinoco">Instagram</a></li>
+				<li><a class="social-network-link" href="https://pinterest.com/orinoco">Pinterest</a></li>
+				<li>
+					<img id="cart-footer" src="./img/cart.png">
+				</li>
+			</ul>
+		</div>
+
+	</footer>
+
+    <script type="module" src="js/api.js"></script>
+    <script type="module" src="js/order.js"></script>
+    <script>
+        
+    </script>
+
+</body>
+</html>

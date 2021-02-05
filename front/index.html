@@ -44,30 +44,49 @@
 					<a href="./cart.html">Panier</a>
 				</li>
 				<li class="navbar-cart--icon">
-					<a href="./cart.html"><i class="fas fa-shopping-cart"></i></a>
+					<a href="./cart.html"><i class="fas fa-shopping-cart"></i>(<span>0</span>)</a>
 				</li>
 			</ul>
 		</nav>
 	</header>
 
-	<!--TITRE TEDDIES-->
-	<section id="title-teddies">
-			<fieldset class="title-teddies-fieldset">
-				<legend>
-				Teddies
-				</legend>
-			</fieldset>		
-	</section>
 
 	<!--PRODUCTLIST-->
 	<div id="productList"></div>
 	
 	<!--FOOTER-->
 	<footer>
-		<img src="img/logo_no_background.png" alt="Logo Orinoco">
+		<div id="div-footer">
+			<ul id="ul-footer">
+				<li><a class="social-network-link" href="https://twitter.com/orinoco">Twitter</a></li>
+				<li><a class="social-network-link" href="https://facebook.com/orinoco">Facebook</a></li>
+				<li><a class="social-network-link" href="mailto:contact@orinoco.com">Email</a></li>
+				<li><a class="social-network-link" href="https://instagram.com/orinoco">Instagram</a></li>
+				<li><a class="social-network-link" href="https://pinterest.com/orinoco">Pinterest</a></li>
+				<li>
+					<img id="cart-footer" src="./img/cart.png">
+				</li>
+			</ul>
+		</div>
+
 	</footer>
 
 	<!--SCRIPTS-->
+	
 	<script type="module" src="js/api.js"></script>
 	<script  type="module" src="js/main.js"></script>
 </body>
+
+<!--<a id="productLink" href="/produit.html?id=${product._id}">
+	<img id="productImage" src="${product.imageUrl}" height="auto" alt="${product.description}" class="cover"/>
+	<h2 id="productName">${product.name}</h2>
+	<h3 id="productPrice">${(product.price) / 100 + ".00 €"}</h3>
+	<div id="more-infos">
+		<button id="addToCart" class="learn-more">
+			<span class="circle" aria-hidden="true">
+			<span class="icon arrow"></span>
+			</span>
+			<span class="button-text">EN SAVOIR PLUS</span>
+		</button>
+	</div>
+</a>-->

@@ -28,7 +28,7 @@
 	<meta property="twitter:image" content="https://alexistisserand.github.io/AlexisTisserand_5_18012021/img/logo_orinoco.png">
 </head>			
 
-<body>
+<body id="body-product">
 	<!--HEADER-->
 	<header>
 		<div class="logo">
@@ -44,15 +44,90 @@
 					<a href="./cart.html">Panier</a>
 				</li>
 				<li class="navbar-cart--icon">
-					<a href="./cart.html"><i class="fas fa-shopping-cart"></i></a>
+					<a href="./cart.html"><i class="fas fa-shopping-cart"></i>(<span>0</span>)</a>
 				</li>
 			</ul>
 		</nav>
 	</header>
 
 	<!--PRODUCT-->
-	<div id="productDatasList">
-		<img id="productImage" src="" width="500px" height="480px">
+	<main>
+		<div class="card">
+			<div class="card__title">
+				<div class="icon">
+				<a href="index.html"><i class="fa fa-arrow-left"></i></a>
+				</div>
+				<h3>Super Teddies</h3>
+			</div>
+		<div class="card__body">
+			<div class="half">
+				<div class="featured_text">
+					<h1 id="productName"></h1>
+					<p class="sub">Ours en peluche</p>
+					<p id="productPrice" class="price"></p>
+				</div>
+			<div class="image">
+				<img id="productImage" src="" alt="">
+			</div>
+			</div>
+			<div class="half">
+				<div class="description">
+					<p id="productDescription"></p>
+				</div>
+			<span class="stock"><i class="fa fa-pen"></i> En stock</span>
+			
+				<div id="productColors"></div>
+
+			
+			</div>
+		</div>
+		<div class="card__footer">
+			<div class="recommend action">
+				<a href="cart.html"> <button type="button">Afficher le panier</button></a>
+			</div>
+			<div class="action">
+			<button id="addToCart" class="share-button" type="button">Ajouter au panier</button>
+			</div>
+		</div>
+		</div>
+	</main>
+
+
+	<!--<section class="product">
+		<div class="product__photo">
+			<div class="photo-container">
+				<div class="photo-main">
+					<img id="productImage" src="" >
+				</div>
+			</div>
+		</div>
+		<div class="product__info">
+			<div class="title">
+				<h1 id="productName"></h1>
+				<span id="productId"></span>
+			</div>
+			<div class="product-price">
+				PRIX <span id="productPrice"></span>
+			</div>
+			<div class="variant">
+				<h3>CHOISISSEZ VOTRE COULEUR</h3>
+				<div id="productColors"></div>
+			</div>
+			<div class="description">
+				<h3>DESCRIPTION DU PRODUIT</h3>
+				<ul>
+					<li id="productDescription"></li>
+					
+				</ul>
+			</div>
+			<button id="addToCart" class="buy--btn">AJOUTER AU PANIER</button>
+		</div>
+	</section>-->
+	
+
+	
+	<!--<div id="productDatasList">
+		<img id="productImage" src="" width="600px" height="480px">
 		<div id="description">
 			<h2 id="productName"></h2>
 			<h3 id="productDescription"></h3>
@@ -60,16 +135,31 @@
 		<div id="choix">
 			<div id="productColors"></div>
 			<p id="productPrice"></p>
-			<input id="addToCart" type="button" onclick="location.href='panier.html'" value="Ajouter au panier"></button>
+			<button><a href="#" id="addToCart">Ajouter au panier</a></button>
+			<button><a href="cart.html" id="addToCart">Afficher le panier</a></button>
+			
 		</div>
-	</div>
+	</div>-->
 	
 	<!--FOOTER-->
 	<footer>
-		<img src="img/logo_no_background.png" alt="Logo Orinoco">
+		<div id="div-footer">
+			<ul id="ul-footer">
+				<li><a class="social-network-link" href="https://twitter.com/orinoco">Twitter</a></li>
+				<li><a class="social-network-link" href="https://facebook.com/orinoco">Facebook</a></li>
+				<li><a class="social-network-link" href="mailto:contact@orinoco.com">Email</a></li>
+				<li><a class="social-network-link" href="https://instagram.com/orinoco">Instagram</a></li>
+				<li><a class="social-network-link" href="https://pinterest.com/orinoco">Pinterest</a></li>
+				<li>
+					<img id="cart-footer" src="./img/cart.png">
+				</li>
+			</ul>
+		</div>
+
 	</footer>
 
 	<!--SCRIPTS-->
 	<script type="module" src="js/api.js"></script>
-    <script  type="module" src="js/products.js"></script>
+	<script  type="module" src="js/products.js"></script>
+	<script type="module" src="/js/cart.js"></script>
 </body>
