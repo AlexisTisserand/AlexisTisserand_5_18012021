@@ -37,7 +37,7 @@ const showProducts = () => {
                             </div>
 
                             <a class="cart" href="/produit.html?id=${product._id}">
-                                <span class="price">${(product.price) / 100 + ".00 €"}</span>
+                                <span class="price-product">${(product.price) / 100 + ".00 €"}</span>
                                 <span class="add-to-cart">
                                 <span class="txt">En savoir plus</span>
                                 </span>
@@ -120,6 +120,8 @@ function onLoadCartnumbers () {
 }
 
 onLoadCartnumbers()
+
+
 
 
 /*

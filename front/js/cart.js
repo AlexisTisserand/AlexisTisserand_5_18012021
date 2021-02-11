@@ -1,6 +1,6 @@
 import {api} from "./api.js";
 
-let addedToCart = document.getElementById('addToCart')
+let addedToCart = document.querySelector('.addToCart')
 
 //Récupérer l'URL et l'ID produit
 
@@ -9,14 +9,19 @@ const productUrl = new URL(urlActuelle);
 const productId = productUrl.searchParams.get("id");
 
 //fetch
-export function cart() {
+function cart() {
     api.fetchEndPoint(`http://localhost:3000/api/teddies/${productId}`)
     .then(product => {
         //console.log(product);
         try {
+
+            product.inCart = 0
+            
+
             addedToCart.addEventListener('click', () => {
                 cartNumbers(product)
                 totalCost(product)
+                alert("Bravo, " + product.name + " est dans votre panier ! Il coûte " + (product.price) / 100 + ".00€")
             })
                     
             //Quand on recharge la page le panier reste à jour
@@ -29,12 +34,12 @@ export function cart() {
             }
             
             //Fonction qui affiche le nombre de produits dans le panier
-            function cartNumbers () {
+            function cartNumbers (product) {
 
                 console.log("Le produit envoyé au panier est", product); //Affiche le produit que j'ai choisi
                 let productNumbers = localStorage.getItem('cartNumbers');
             
-                productNumbers = parseInt(productNumbers)
+                productNumbers = parseInt(productNumbers)               
             
                 if (productNumbers) {
                     localStorage.setItem('cartNumbers', productNumbers + 1);
@@ -51,25 +56,32 @@ export function cart() {
             //Fonction qui affiche les données du produit choisi sous format JSON
             function setItems(product) {
 
-                let cartItems = localStorage.getItem("productsInCart")
+                //check s'il existe déjà des items dans le panier
+                let cartItems = localStorage.getItem('productsInCart')
                 cartItems = JSON.parse(cartItems)
-
                 
-                    if(cartItems !== null && cartItems[product.name] !== undefined) {
-                        cartItems = {
-                            ...cartItems, //Conserver les autres données produits
-                            [product.name]: product
-                        }
-                    cartItems[product.name].inCart += 1
-                    } else {
-                        product.inCart = 1;
+                //console.log(cartItems);
+                
+                if (cartItems != null) { 
+                    if ( cartItems[product.name] == null) {
                         cartItems = {
                             ...cartItems,
                             [product.name]: product
-                        }                        
+                        }
                     }
+                    cartItems[product.name].inCart += 1 ;
+                    console.log(cartItems[product.name].inCart);
+                    
+                } else { //Première fois que je clique
+                    
+                    product.inCart = 1;
+                    cartItems = {
+                        [product.name]: product //Pareil que "Arnold"
+                    }
+                }
                 
                 localStorage.setItem("productsInCart", JSON.stringify(cartItems))
+                
             }           
 
             //Fonction qui affiche le prix total et le stock dans localStorage
@@ -101,7 +113,5 @@ export function cart() {
 }
 
 cart()
-
-
 
 

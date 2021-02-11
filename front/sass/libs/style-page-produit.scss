@@ -172,8 +172,7 @@ main {
       }
     }
 
-    .action,
-    #btn-delete {
+    .action {
       button {
         cursor: pointer;
         border: 1px solid $tertiary;

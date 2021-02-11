@@ -8,11 +8,11 @@ $font-bold: "Montserrat", sans-serif;
 /* Global "table" column settings */
 .product-image { float: left; width: 20%; }
 .product-details { float: left; width: 37%; }
-.product-price { float: left; width: 12%; }
+.product-price, .price { float: left; width: 12%; }
 .product-quantity { float: left; width: 10%; }
 .product-removal { float: left; width: 9%; }
 .product-line-price { float: left; width: 12%; text-align: right; }
-#product-line-price {
+.total-product-price {
     float: right;
 }
 
@@ -38,14 +38,14 @@ $font-bold: "Montserrat", sans-serif;
 
 
 /* Apply dollar signs */
-.product .product-price:after, .product .product-line-price:after, .totals-value:after {
+.product .product-price:after, .product .total-product-price:after, .totals-value:after {
   content: '€';
 }
 
 
 /* Body/Header stuff */
 body {
-  padding: 0px 30px 30px 20px;
+  
   font-family: $font-default;
   font-weight: 100;
 }
@@ -59,8 +59,8 @@ h1 {
   font-weight: 100;
 }
 
-h2 {
-    margin-bottom: 50px;
+h2{
+  margin-left: 30px;
 }
 
 label {
@@ -122,7 +122,7 @@ label {
     }
   }
   
-  .remove-product {
+  .delete-product {
     border: 0;
     cursor: pointer;
     padding: 4px 8px;
@@ -131,10 +131,13 @@ label {
     font-family: $font-bold;
     font-size: 12px;
     border-radius: 3px;
+    &:hover {
+      opacity: 0.6;
+    }
   }
   
   .remove-product:hover {
-    background-color: rgba($color: $tertiary, $alpha: 0.4);
+    opacity: 0.6;
   }
 }
 
@@ -187,7 +190,7 @@ label {
     margin-top: 20px;
     margin-right: 20px;
     padding: 6px 25px;
-    background-color: #9c52b9;
+    background-color: $tertiary;
     color: #fff;
     font-size: 25px;
     border-radius: 3px;
@@ -205,8 +208,8 @@ label {
    margin-top: -30px;
 }
 
-#remove-product,
-#add-product {
+.remove-product,
+.add-product {
     cursor: pointer;
     &:hover{
         opacity: 0.5;
@@ -257,7 +260,7 @@ label {
     width: auto;
   }
   
-  .product-line-price {
+  .total-product-price {
     float: right;
     width: 70px;
   }
@@ -272,14 +275,14 @@ label {
     float: right;
   }
   
-  .product-line-price {
+  .total-product-price {
     float: right;
     clear: left;
     width: auto;
     margin-top: 10px;
   }
   
-  .product .product-line-price:before {
+  .product .total-product-price:before {
     content: 'Item Total: €';
   }
   

@@ -108,7 +108,7 @@ header .navbar span {
   left: 0px;
 }
 
-.el-wrapper:hover .price {
+.el-wrapper:hover .price-product {
   left: 20px;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -266,7 +266,7 @@ header .navbar span {
   font-weight: 700;
 }
 
-.cart .price {
+.cart .price-product {
   -webkit-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
   -moz-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
   -o-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
@@ -482,8 +482,7 @@ main {
   font-size: 14px;
   color: #555;
 }
-.card .card__footer .action button,
-.card .card__footer #btn-delete button {
+.card .card__footer .action button {
   cursor: pointer;
   border: 1px solid #b91eda;
   padding: 14px 30px;
@@ -495,8 +494,7 @@ main {
   transition: 200ms;
   outline: none;
 }
-.card .card__footer .action button:hover,
-.card .card__footer #btn-delete button:hover {
+.card .card__footer .action button:hover {
   background: #fff;
   color: #b91eda;
 }
@@ -523,7 +521,7 @@ select {
   width: 37%;
 }
 
-.product-price {
+.product-price, .price {
   float: left;
   width: 12%;
 }
@@ -544,7 +542,7 @@ select {
   text-align: right;
 }
 
-#product-line-price {
+.total-product-price {
   float: right;
 }
 
@@ -569,13 +567,12 @@ select {
 
 /* Apply clearfix in a few places */
 /* Apply dollar signs */
-.product .product-price:after, .product .product-line-price:after, .totals-value:after {
+.product .product-price:after, .product .total-product-price:after, .totals-value:after {
   content: "€";
 }
 
 /* Body/Header stuff */
 body {
-  padding: 0px 30px 30px 20px;
   font-family: "Montserrat", sans-serif;
   font-weight: 100;
 }
@@ -589,7 +586,7 @@ h1 {
 }
 
 h2 {
-  margin-bottom: 50px;
+  margin-left: 30px;
 }
 
 label {
@@ -637,7 +634,7 @@ label {
 .product .product-quantity input {
   width: 40px;
 }
-.product .remove-product {
+.product .delete-product {
   border: 0;
   cursor: pointer;
   padding: 4px 8px;
@@ -647,8 +644,11 @@ label {
   font-size: 12px;
   border-radius: 3px;
 }
+.product .delete-product:hover {
+  opacity: 0.6;
+}
 .product .remove-product:hover {
-  background-color: rgba(185, 30, 218, 0.4);
+  opacity: 0.6;
 }
 
 /* Totals section */
@@ -696,7 +696,7 @@ label {
   margin-top: 20px;
   margin-right: 20px;
   padding: 6px 25px;
-  background-color: #9c52b9;
+  background-color: #b91eda;
   color: #fff;
   font-size: 25px;
   border-radius: 3px;
@@ -714,12 +714,12 @@ label {
   margin-top: -30px;
 }
 
-#remove-product,
-#add-product {
+.remove-product,
+.add-product {
   cursor: pointer;
 }
-#remove-product:hover,
-#add-product:hover {
+.remove-product:hover,
+.add-product:hover {
   opacity: 0.5;
 }
 
@@ -765,7 +765,7 @@ label {
     width: auto;
   }
 
-  .product-line-price {
+  .total-product-price {
     float: right;
     width: 70px;
   }
@@ -776,14 +776,14 @@ label {
     float: right;
   }
 
-  .product-line-price {
+  .total-product-price {
     float: right;
     clear: left;
     width: auto;
     margin-top: 10px;
   }
 
-  .product .product-line-price:before {
+  .product .total-product-price:before {
     content: "Item Total: €";
   }
 

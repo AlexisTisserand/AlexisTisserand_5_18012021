@@ -120,7 +120,7 @@ header {
   left: 0px;
 }
 
-.el-wrapper:hover .price {
+.el-wrapper:hover .price-product {
   left: 20px;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -279,7 +279,7 @@ header {
   font-weight: 700;
 }
 
-.cart .price {
+.cart .price-product {
   -webkit-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
   -moz-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);
   -o-transition: all 600ms cubic-bezier(0, 0, 0.18, 1);

@@ -19,8 +19,6 @@ function displayProduct() {
                 const productPrice = document.getElementById('productPrice');
                 const productId = document.getElementById('productId')
 
-            
-             
 
                 //MISE EN PLACE SELECT COLOR
                 const selectColor = document.createElement('select');
@@ -59,3 +57,4 @@ function displayProduct() {
 }
 
 displayProduct()
+
