@@ -1,16 +1,23 @@
 function displayCart () {
     let cartItems = localStorage.getItem("productsInCart");
     cartItems = JSON.parse(cartItems)
-    let productContainer = document.querySelector(".product-container")
+    let productDiv = document.querySelector(".product")
     let cartCost = localStorage.getItem('totalCost')
     let totalBasket = document.getElementById("total-basket")
+    let productNumbers = localStorage.getItem('cartNumbers');   
+    productNumbers = parseInt(productNumbers)
+        
 
     //check si cartItems existe
-    if (cartItems && productContainer) {
+    if (cartItems && productDiv) {
+
+        productDiv.innerHTML = ""
+
+        totalBasket.innerHTML = ""
         
         Object.values(cartItems).forEach((product) => {
 
-            productContainer.innerHTML += 
+            productDiv.innerHTML += 
             `
             <div class="product">
                 <div class="product-image">
@@ -33,34 +40,27 @@ function displayCart () {
             </div>
             
             `       
-        })
-
-        modifyQuantity();
+        })       
         
         totalBasket.innerHTML += 
             `
             <div class="totals">
                 <div class="totals-item">
-                    <label>Sous-total</label>
-                    <div class="totals-value cart-subtotal">${(cartCost) / 100 + ".00"}</div>
-                </div>
-                <div class="totals-item">
-                    <label>Livraison</label>
-                    <div class="totals-value" id="cart-shipping">4.99</div>
-                </div>
-                <div class="totals-item totals-item-total">
-                    <label>Total</label>
-                    <div class="totals-value cart-total">${(((cartCost) / 100) + 4.99)}</div>
+                    <label>Total :</label>
+                    <div class="totals-value cart-total">${(cartCost) / 100 + ".00"}</div>
                 </div>
             </div>
-                <button class="checkout">Checkout</button>
             `          
-    }
-}
 
+    } 
+
+    modifyQuantity();
+
+}
 
 onLoadCartnumbers();
 displayCart();
+clearBasket();
 
 //Modifie la quantité de produits sur la page panier
 function modifyQuantity () {
@@ -95,8 +95,9 @@ function modifyQuantity () {
             localStorage.setItem("totalCost", cartCost + PRODUCT["price"])
 
             quantity[i].innerHTML ++
-            
-            document.location.reload();
+
+            displayCart()
+
         })
     }
 
@@ -125,8 +126,10 @@ function modifyQuantity () {
                 localStorage.setItem("totalCost", cartCost - PRODUCT["price"])
 
                 quantity[i].innerHTML --
+
+                displayCart()
                 
-                document.location.reload();
+                //document.location.reload();
             }
         })
     }
@@ -137,35 +140,31 @@ function modifyQuantity () {
 
             e.preventDefault();
 
-            let cartItems = localStorage.getItem("productsInCart");
+            let cartItems = localStorage.getItem("productsInCart");           
             cartItems = JSON.parse(cartItems)
-
             
-
-            localStorage.setItem("productsInCart", JSON.stringify(Object.values(cartItems)))
-
-            const PRODUCT = Object.values(cartItems)[i] //Renvoie un tableau des valeurs de cartItems et surtout du produit choisi
-
-            console.log("Vous avez retiré du panier : ", PRODUCT);
-
-
-
-            let productNumbers = localStorage.getItem('cartNumbers');  
-            productNumbers = parseInt(productNumbers)          
-            localStorage.setItem('cartNumbers', productNumbers - PRODUCT["inCart"])
+            let PRODUCT = Object.values(cartItems)[i] //Renvoie un tableau des valeurs de cartItems et surtout du produit choisi
 
             let cartCost = localStorage.getItem('totalCost')
             cartCost = parseInt(cartCost)
             localStorage.setItem("totalCost", cartCost - ( PRODUCT["inCart"] * PRODUCT["price"]))
 
+            let productNumbers = localStorage.getItem('cartNumbers');  
+            productNumbers = parseInt(productNumbers)          
+            localStorage.setItem('cartNumbers', productNumbers - PRODUCT["inCart"])
+
             PRODUCT["inCart"] = 0
 
             localStorage.setItem("productsInCart", JSON.stringify(cartItems))
 
-            e.currentTarget.parentNode.parentNode.remove();
+            delete cartItems[Object.keys(cartItems)[i]] 
 
-           // document.location.reload();
-        
+            localStorage.setItem("productsInCart", JSON.stringify(Object.values(cartItems)))
+
+            displayCart()
+
+            clearBasket()
+            
         })
     }
 }
@@ -180,26 +179,107 @@ function onLoadCartnumbers () {
     }
 }
 
+function clearBasket () {
+    //fonction qui efface le panier au click sur le bouton
+    let productsNumber = localStorage.getItem("cartNumbers");
+    productsNumber = parseInt(productsNumber)
+    let cartItems = localStorage.getItem("productsInCart");
+    let cartCost = localStorage.getItem("totalCost")
+    console.log( productsNumber);
+    let deleteProductsButton = document.getElementById("btn-delete")
+    let form = document.getElementById("form-order")
+    let total = document.getElementById("total-basket")
+    let label = document.getElementById("columns")
 
-//fonction qui efface le panier au click sur le bouton
-let cartItems = localStorage.getItem("productsInCart");
-let deleteProductsButton = document.getElementById("btn-delete")
+    if(productsNumber) {
+        deleteProductsButton.innerHTML = "Effacer le panier"
+        deleteProductsButton.addEventListener("click", () => {
+            localStorage.clear()
+        })
+    } else {
+        deleteProductsButton.innerHTML = "Votre panier est vide ! Cliquez ici pour retourner à vos achats"
+        let linkButton = document.getElementById("link-btn")
+        linkButton.href = "index.html"
+        form.style.display = "none"
+        total.style.display="none"
+        label.style.display = "none"
+    }
 
-if(cartItems != null) {
-    deleteProductsButton.innerHTML = "Effacer votre panier"
-    deleteProductsButton.addEventListener('click', () => {
-        deleteItems();
-        document.location.reload();
+}
+
+//Fetch POST method
+
+function post() {
+
+    let form = document.getElementById("form")
+
+    form.addEventListener('submit', e => {
+
+        let cartItems = localStorage.getItem("productsInCart");
+        cartItems = JSON.parse(cartItems)
+
+        console.log(Object.values(cartItems));
+
+        e.preventDefault()
+
+        let firstName = document.getElementById('first-name')
+        let lastName = document.getElementById('last-name')
+        let address = document.getElementById('address')
+        let city = document.getElementById('city')
+        let email = document.getElementById('email')
+
+        let array = [];
+        for (let i = 0; i < Object.values(cartItems).length; i++) {
+            let newArray = Object.values(cartItems)[i]._id;
+            array.push(newArray)
+        }
+        
+        //fecth post request
+
+        const url = `http://localhost:3000/api/teddies/order`; 
+
+        fetch(url, {
+            method: "POST",
+            body: JSON.stringify({
+                contact: {
+                    firstName: firstName.value,
+                    lastName: lastName.value,
+                    address: address.value,
+                    city: city.value,
+                    email: email.value
+                },
+                products: array,
+            }),
+            headers: {
+                "Content-Type" : "application/json; charset=UTF-8"
+            }
+        })
+        .then(response => {
+            return response.json()
+        })
+        .then(datas => {
+            console.log(datas);
+
+            window.location = "/confirmation.html"
+
+            let contact = {
+                firstName: datas.contact.firstName,
+                lastName: datas.contact.lastName,
+                address: datas.contact.address,
+                city: datas.contact.city,
+                email: datas.contact.email,
+            }
+            contact = JSON.stringify(contact)
+            let results = document.getElementById("results")
+            let cartCost = localStorage.getItem('totalCost')
+            cartCost = parseInt(cartCost)
+
+            localStorage.setItem("orderId", datas.orderId)
+            localStorage.setItem("contact", contact)
+        })
+
     })
-} else {
-    deleteProductsButton.innerHTML = "Votre panier est vide ! Cliquez ici pour retourner à vos achats"
-    let linkButton = document.getElementById("link-btn")
-    linkButton.href = "index.html"
 }
 
-function deleteItems() {
-    // Clear localStorage items 
-    localStorage.clear();
-}
-
+post()
 

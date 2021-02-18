@@ -38,29 +38,27 @@ $font-bold: "Montserrat", sans-serif;
 
 
 /* Apply dollar signs */
-.product .product-price:after, .product .total-product-price:after, .totals-value:after {
+.product .price:after, .product .total-product-price:after, .totals-value:after {
   content: '€';
 }
 
 
 /* Body/Header stuff */
-body {
-  
-  font-family: $font-default;
-  font-weight: 100;
-}
-
-#header-cart {
-    margin-bottom: 50px;
-   
-}
 
 h1 {
   font-weight: 100;
 }
 
 h2{
-  margin-left: 30px;
+    font-size: 4.5em;
+    letter-spacing: -1px;
+    color: white;
+    text-align: center;
+}
+
+h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 label {
@@ -68,8 +66,8 @@ label {
 }
 
 .shopping-cart {
-  margin-top: -45px;
-  background-color: rgba($color: #fff, $alpha: 0.4);
+  margin: 50px;
+  background-color: rgba($color: #fff, $alpha: 0.2);
   padding: 30px;
 }
 
@@ -118,7 +116,6 @@ label {
   .product-quantity {
     input {
       width: 40px;
-      
     }
   }
   
@@ -131,6 +128,7 @@ label {
     font-family: $font-bold;
     font-size: 12px;
     border-radius: 3px;
+    transition: all 0.2s ease-in-out;
     &:hover {
       opacity: 0.6;
     }
@@ -143,8 +141,13 @@ label {
 
 
 /* Totals section */
+.total-basket {
+  display: flex;
+}
 .totals {
-    font-size: 1.3rem;
+    display: flex;
+    font-size: 1.6rem;
+    font-weight: bold;
     padding: 30px;
   .totals-item {
     float: right;
@@ -155,15 +158,9 @@ label {
     label {
       float: left;
       clear: both;
-      width: 79%;
-      text-align: right;
+      margin-right: 20px;
     }
-    
-    .totals-value {
-      float: right;
-      width: 21%;
-      text-align: right;
-    }
+
   }
   
   .totals-item-total {
@@ -177,7 +174,7 @@ label {
     border: 0;
     margin-top: 20px;
     padding: 6px 25px;
-    background-color: #6b6;
+    background-color: $tertiary;
     color: #fff;
     font-size: 25px;
     border-radius: 3px;
@@ -194,8 +191,10 @@ label {
     color: #fff;
     font-size: 25px;
     border-radius: 3px;
+    transition: all 0.2s ease-in-out;
     &:hover{
-        background-color: #926da0 ;
+        opacity: 0.5;
+        
     }
 }
 
@@ -204,8 +203,8 @@ label {
 }
 
 #formulaire-contact{
-   display: flex;
-   margin-top: -30px;
+  display: flex;
+  margin-top: -30px;
 }
 
 .remove-product,
@@ -214,6 +213,95 @@ label {
     &:hover{
         opacity: 0.5;
     }
+}
+
+/*FORMULAIRE*/
+
+.row-form {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin: 0 -16px;
+  width: 500px;
+}
+
+#form {
+  max-width: 60%;
+}
+
+#form-order{
+  text-align: -webkit-center;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container-form {
+  
+  padding: 5px 20px 15px 20px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+  text-align: left;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn-checkout {
+  background-color: $tertiary;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+hr {
+  border: 1px solid lightgrey;
 }
 
 
@@ -282,9 +370,6 @@ label {
     margin-top: 10px;
   }
   
-  .product .total-product-price:before {
-    content: 'Item Total: €';
-  }
   
   .totals {
     .totals-item {
@@ -297,4 +382,23 @@ label {
       }
     }
   }
+}
+
+/*formulaire*/
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+
+/*PANIER*/
+
+.popout{
+	font-weight: 900;
+	font-size: 2rem;
+	padding-top: 40px;
+  text-align: center;
 }

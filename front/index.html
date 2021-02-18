@@ -38,37 +38,43 @@
 				</h1>
 			</a>
 		</div>
-		<nav class="navbar">
+
+		<div class="container">
+			<button class="btn rounded" onclick="window.location.href='cart.html'">
+				<div class="navbar-tab">
+					<p class="panier">Panier</p>
+					<i class="panier fas fa-shopping-cart"></i>
+					(<span>0</span>)
+				</div>
+			</button>
+		</div>
+
+		<!--<nav class="navbar">
 			<ul class="navbar-cart">
 				<li id="panier">
-					<a href="./cart.html">Panier</a>
+					<a href="./cart.html">PANIER</a>
 				</li>
 				<li class="navbar-cart--icon">
 					<a href="./cart.html"><i class="fas fa-shopping-cart"></i>(<span>0</span>)</a>
 				</li>
 			</ul>
-		</nav>
+		</nav>-->
 	</header>
 
 
 	<!--PRODUCTLIST-->
 	<div id="productList"></div>
 	
+	
 	<!--FOOTER-->
-	<footer>
-		<div id="div-footer">
-			<ul id="ul-footer">
-				<li><a class="social-network-link" href="https://twitter.com/orinoco">Twitter</a></li>
-				<li><a class="social-network-link" href="https://facebook.com/orinoco">Facebook</a></li>
-				<li><a class="social-network-link" href="mailto:contact@orinoco.com">Email</a></li>
-				<li><a class="social-network-link" href="https://instagram.com/orinoco">Instagram</a></li>
-				<li><a class="social-network-link" href="https://pinterest.com/orinoco">Pinterest</a></li>
-				<li>
-					<img id="cart-footer" src="./img/cart.png">
-				</li>
-			</ul>
-		</div>
-
+	
+	<footer class="site-footer">
+		<ul class="social-icons">
+			<li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
+			<li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+			<li><a class="pinterest" href="#"><i class="fab fa-pinterest-p"></i></a></li>
+			<li><a class="instagram" href="#"><i class="fab fa-instagram"></i></a></li>   
+		</ul>
 	</footer>
 
 	<!--SCRIPTS-->

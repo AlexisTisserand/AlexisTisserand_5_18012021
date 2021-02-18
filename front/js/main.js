@@ -49,57 +49,6 @@ const showProducts = () => {
             </div>
         
             `
-            /*<section class="product">
-            <div class="product__photo">
-                <div class="photo-container">
-                    <div class="photo-main">
-                        <img src="${product.imageUrl}">
-                    </div>
-                </div>
-            </div>
-            <div class="product__info">
-                <div class="title">
-                    <h1>${product.name}</h1>
-                    <span>Ref : ${product._id}</span>
-                </div>
-                <div class="price">
-                    Prix <span>${(product.price) / 100 + ".00€"}</span>
-                </div>
-                <div class="variant">
-                    <h3>DIFFÉRENTES COULEURS</h3>
-                    <ul>
-                        <li>${product.colors}
-                    </ul>
-                </div>
-                <div class="description">
-                    <h3>Description</h3>
-                    <p>${product.description}</p>
-                </div>
-                    <button id="addToCart" class="learn-more">
-                    <a id="productLink" href="/produit.html?id=${product._id}">
-                        <span class="circle" aria-hidden="true">
-                        <span class="icon arrow"></span>
-                        </span>
-                        <span class="button-text">EN SAVOIR PLUS</span>
-                        </a>
-                    </button>
-                </div>
-        </section>*/
-
-            /*A VOIR SI ON PREND LUI OU PAS POUR LA PAGE D'ACCUEIL
-            <a id="productLink" href="/produit.html?id=${product._id}">
-                <img id="productImage" src="${product.imageUrl}" height="auto" alt="${product.description}" class="cover"/>
-                <h2 id="productName">${product.name}</h2>
-                <h3 id="productPrice">${(product.price) / 100 + ".00 €"}</h3>
-                <div id="more-infos">
-                    <button id="addToCart" class="learn-more">
-                        <span class="circle" aria-hidden="true">
-                        <span class="icon arrow"></span>
-                        </span>
-                        <span class="button-text">EN SAVOIR PLUS</span>
-                    </button>
-                </div>
-            </a>*/
         })
     }
         catch {
@@ -115,21 +64,8 @@ function onLoadCartnumbers () {
     let productNumbers = localStorage.getItem('cartNumbers');
 
     if(productNumbers) {
-        document.querySelector('.navbar-cart--icon span').innerHTML = productNumbers;
+        document.querySelector('span').innerHTML = productNumbers;
     }
 }
 
 onLoadCartnumbers()
-
-
-
-
-/*
-`
-<a id="productLink" href="/produit.html?id=${product._id}">
-    <img id="productImage" src="${product.imageUrl}" height="auto" alt="${product.description}/>
-    <h2 id="productName">${product.name}</h2>
-    <h3 id="productPrice">${(product.price) / 100 + ".00 €"}</h3>
-</a>
-    <a href="#" id="addToCart">Ajouter au panier</a>
-*/
