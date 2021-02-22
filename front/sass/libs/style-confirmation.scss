@@ -1,3 +1,5 @@
+
+
 .summary{
     margin: 50px;
     background-color: rgba($color: $tertiary, $alpha: 0.8);
@@ -14,6 +16,9 @@
     .datas{
         margin-bottom: 20px;
         font-weight: normal;
+        &-contact{
+            font-weight: bold;
+        }
     }
     
 }
@@ -46,4 +51,12 @@
         background: #fff;
         color: $tertiary;
     }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .summary {
+        margin: 0;
+    }
+
 }

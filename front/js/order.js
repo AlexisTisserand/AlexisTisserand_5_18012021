@@ -128,8 +128,7 @@ function modifyQuantity () {
                 quantity[i].innerHTML --
 
                 displayCart()
-                
-                //document.location.reload();
+
             }
         })
     }
@@ -147,7 +146,7 @@ function modifyQuantity () {
 
             let cartCost = localStorage.getItem('totalCost')
             cartCost = parseInt(cartCost)
-            localStorage.setItem("totalCost", cartCost - ( PRODUCT["inCart"] * PRODUCT["price"]))
+            localStorage.setItem("totalCost", cartCost - (PRODUCT["inCart"] * PRODUCT["price"]))
 
             let productNumbers = localStorage.getItem('cartNumbers');  
             productNumbers = parseInt(productNumbers)          
@@ -236,7 +235,7 @@ function post() {
         
         //fecth post request
 
-        const url = `http://localhost:3000/api/teddies/order`; 
+        const url = `https://orinoco-p5-alexis-tisserand.herokuapp.com/api/teddies/order`; 
 
         fetch(url, {
             method: "POST",

@@ -1,9 +1,10 @@
 import {api} from "./api.js"
 
+ 
 const productList = document.getElementById('productList')
 
 //Requete API
-const url = `http://localhost:3000/api/teddies`;
+const url = `https://orinoco-p5-alexis-tisserand.herokuapp.com/api/teddies`; //http://localhost:3000
 
 //FONCTION POUR MONTRER LES PRODUITS
 

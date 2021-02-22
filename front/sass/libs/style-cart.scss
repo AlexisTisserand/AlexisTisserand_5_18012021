@@ -66,8 +66,11 @@ label {
 }
 
 .shopping-cart {
+  box-shadow: rgb(96, 21, 110) 0px 20px 30px -10px;
   margin: 50px;
+  border-radius: 50px;
   background-color: rgba($color: #fff, $alpha: 0.2);
+  border: 3px $color-border solid;
   padding: 30px;
 }
 
@@ -141,6 +144,11 @@ label {
 
 
 /* Totals section */
+.shopping-cart-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 .total-basket {
   display: flex;
 }
@@ -148,9 +156,10 @@ label {
     display: flex;
     font-size: 1.6rem;
     font-weight: bold;
-    padding: 30px;
+    
   .totals-item {
-    float: right;
+    display: flex;
+    flex-direction: row;
     clear: both;
     width: 100%;
     margin-bottom: 10px;
@@ -180,22 +189,24 @@ label {
     border-radius: 3px;
 }
 
-#btn-delete{
-    cursor: pointer;
-    float: right;
-    border: 0;
-    margin-top: 20px;
-    margin-right: 20px;
-    padding: 6px 25px;
-    background-color: $tertiary;
-    color: #fff;
-    font-size: 25px;
-    border-radius: 3px;
-    transition: all 0.2s ease-in-out;
-    &:hover{
-        opacity: 0.5;
-        
-    }
+#btn-delete,
+.btn-checkout{
+  box-shadow: rgb(96, 21, 110) 0px 20px 30px -10px;
+  cursor: pointer;
+  border: 2px solid $color-border;
+  padding: 14px 30px;
+  border-radius: 200px;
+  color: #fff;
+  background: $tertiary;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  transition: 200ms;
+  outline: none;
+
+  &:hover {
+    background: #fff;
+    color: $tertiary;
+  }
 }
 
 .checkout:hover {
@@ -284,34 +295,51 @@ label {
   font-size: 24px;
 }
 
-.btn-checkout {
-  background-color: $tertiary;
-  color: white;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  width: 100%;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 17px;
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    opacity: 0.6;
-  }
-}
+
 
 hr {
   border: 1px solid lightgrey;
 }
 
+/*PANIER*/
+
+.popout{
+	font-weight: 900;
+	font-size: 2rem;
+	padding-top: 40px;
+  text-align: center;
+}
+
 
 /* Make adjustments for tablet */
-@media screen and (max-width: 650px) {
+
+@media screen and (max-width: 1000px) {
+
+
+
+  #link-btn{
+    display: flex;
+    justify-content: center;
+    #btn-delete {
+      margin: 0;
+      
+    }
+  }
+
+  #form{
+    max-width: 100%;
+  }
+
+  .popout{
+    margin-bottom: 50px;
+  }
   
   .shopping-cart {
-    margin: 0;
+    margin: 10px;
     padding-top: 20px;
-    border-top: 1px solid $color-border;
+    border: none;
+    border: 3px solid $color-border;
+    margin-bottom: 50px;
   }
   
   .column-labels {
@@ -339,6 +367,7 @@ hr {
   
   .product-quantity {
     width: 100px;
+    text-align: center;
     input {
       margin-left: 20px;
     }
@@ -346,6 +375,15 @@ hr {
 
   .product-removal {
     width: auto;
+  }
+
+  .totals{
+    display: block;
+    .totals-item{
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
   }
   
   .total-product-price {
@@ -382,23 +420,4 @@ hr {
       }
     }
   }
-}
-
-/*formulaire*/
-@media (max-width: 800px) {
-  .row {
-    flex-direction: column-reverse;
-  }
-  .col-25 {
-    margin-bottom: 20px;
-  }
-}
-
-/*PANIER*/
-
-.popout{
-	font-weight: 900;
-	font-size: 2rem;
-	padding-top: 40px;
-  text-align: center;
 }
