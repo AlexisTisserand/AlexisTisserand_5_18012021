@@ -522,7 +522,8 @@ main {
   font-size: 14px;
   color: #555;
 }
-.card .card__footer .action #btn-modal {
+.card .card__footer .action #btn-modal,
+.card .card__footer .action #btn-add-to-cart {
   box-shadow: #60156e 0px 20px 30px -10px;
   cursor: pointer;
   border: 1px solid #b91eda;
@@ -535,7 +536,8 @@ main {
   transition: 200ms;
   outline: none;
 }
-.card .card__footer .action #btn-modal:hover {
+.card .card__footer .action #btn-modal:hover,
+.card .card__footer .action #btn-add-to-cart:hover {
   background: #fff;
   color: #b91eda;
 }
@@ -614,7 +616,7 @@ select {
 /*MEDIA QUERIES*/
 @media screen and (max-width: 700px) {
   main {
-    width: 80%;
+    width: 100%;
   }
   main h3 {
     display: none;
@@ -636,7 +638,7 @@ select {
     margin-bottom: 20px;
   }
   .half .description {
-    display: none;
+    display: block;
   }
 
   .card__footer {
@@ -728,8 +730,8 @@ label {
 .shopping-cart {
   box-shadow: #60156e 0px 20px 30px -10px;
   margin: 50px;
-  border-radius: 50px;
-  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
   border: 3px #eee solid;
   padding: 30px;
 }
@@ -792,6 +794,7 @@ label {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .total-basket {
@@ -946,6 +949,7 @@ hr {
 
 /*PANIER*/
 .popout {
+  display: block;
   font-weight: 900;
   font-size: 2rem;
   padding-top: 40px;
@@ -954,10 +958,6 @@ hr {
 
 /* Make adjustments for tablet */
 @media screen and (max-width: 1000px) {
-  #link-btn {
-    display: flex;
-    justify-content: center;
-  }
   #link-btn #btn-delete {
     margin: 0;
   }
@@ -1027,6 +1027,14 @@ hr {
     width: 70px;
   }
 }
+@media screen and (max-width: 500px) {
+  #cart-footer {
+    justify-content: center;
+  }
+  #cart-footer #link-btn #btn-delete {
+    margin: 0;
+  }
+}
 /* Make more adjustments for phone */
 @media screen and (max-width: 350px) {
   .product-removal {
@@ -1047,6 +1055,11 @@ hr {
     width: 40%;
   }
 }
+#title-error {
+  text-align: center;
+  color: white;
+}
+
 .summary {
   margin: 50px;
   background-color: rgba(185, 30, 218, 0.8);
@@ -1123,6 +1136,7 @@ hr {
 .site-footer {
   background-color: white;
   padding: 20px 0 20px;
+  box-shadow: #60156e 0px 20px 30px -10px;
 }
 
 .site-footer .social-icons {

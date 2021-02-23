@@ -1,3 +1,5 @@
+//Mise en place dynamique de la page confirmation.html avec toutes les infos contact; orderId et prix total récupérées dans le localStorage
+
 let contact = localStorage.getItem('contact')
 let cartCost = localStorage.getItem('totalCost')
 cartCost = parseInt(cartCost)
@@ -25,9 +27,9 @@ results.innerHTML +=
         <h4 class="datas">Montant total de votre commande : <span class="datas-contact">${(cartCost / 100) + ".00€"}</span></h4>
     </div>
     
-  </div>
+</div>
 
-  <a href="index.html"> <button onclick="deleteItems()" class="show-cart" type="button">Retour à l'accueil</button></a>
+<a href="index.html"> <button onclick="deleteItems()" class="show-cart" type="button">Retour à l'accueil</button></a>
 
 `
 

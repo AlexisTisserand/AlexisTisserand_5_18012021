@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr" prefix="og: http://ogp.me/ns#">
 <head>
@@ -10,54 +9,53 @@
 
 
 	<!--Primary meta tags-->
-	<title>Orinoco - Accueil</title>
+	<title>Orinoco - Erreur 404</title>
 	<meta name="description" content="Orinoco, entreprise de e-commerce. Notre objectif : proposer des aplications thématiques avec un seul type de produits. ">
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://alexistisserand.github.io/AlexisTisserand_5_18012021/">
-	<meta property="og:title" content="Accueil - Orinoco">
+	<meta property="og:title" content="Erreur 404 - Orinoco">
 	<meta property="og:description" content="Orinoco, entreprise de e-commerce. Notre objectif : proposer des aplications thématiques avec un seul type de produits.">
 	<meta property="og:image" content="https://alexistisserand.github.io/AlexisTisserand_5_18012021/img/logo_orinoco.png">
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="https://alexistisserand.github.io/AlexisTisserand_5_18012021/">
-	<meta property="twitter:title" content="Accueil - Orinoco">
+	<meta property="twitter:title" content="Erreur 404 - Orinoco">
 	<meta property="twitter:description" content="Orinoco, entreprise de e-commerce. Notre objectif : proposer des aplications thématiques avec un seul type de produits.">
 	<meta property="twitter:image" content="https://alexistisserand.github.io/AlexisTisserand_5_18012021/img/logo_orinoco.png">
 </head>			
 
-<body>
+<body id="body-product">
 	<!--HEADER-->
 	<header>
 		<div class="logo">
-			<a href="index.html">
+			<a href="index.html" onclick="localStorage.clear()">
 				<h1>				
 					<img src="img/logo_no_background.png" alt="Logo Orinoco">
 				</h1>
 			</a>
 		</div>
+    </header>
 
-		<div class="container">
-			<button class="btn rounded" onclick="window.location.href='cart.html'">
-				<div class="navbar-tab">
-					<p class="panier">Panier</p>
-					<i class="panier fas fa-shopping-cart"></i>
-					(<span>0</span>)
-				</div>
-			</button>
-		</div>
-	</header>
+	<h2 class="popout">
+		<span>E</span>
+		<span>R</span>
+		<span>R</span>
+		<span>E</span>
+		<span>U</span>
+        <span>R</span><br>
+        <span>4</span>
+        <span>0</span>
+        <span>4</span>
+	</h2>
 
+    <h3 id="title-error">Oh non ! La page demandée n'existe pas !</h3>
 
-	<!--PRODUCTLIST-->
-	<div id="productList"></div>
-	
-	
-	<!--FOOTER-->
-	
-	<footer class="site-footer">
+    <a href="index.html"> <button class="show-cart" type="button">Retour à l'accueil</button></a>
+
+	<footer class="site-footer" style="margin-top: 50px;">
 		<ul class="social-icons">
 			<li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
 			<li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
@@ -66,8 +64,5 @@
 		</ul>
 	</footer>
 
-	<!--SCRIPTS-->
-	<script type="module" src="./js/config.js" defer></script>
-	<script type="module" src="js/api.js"></script>
-	<script type="module" src="js/main.js"></script>
 </body>
+</html>

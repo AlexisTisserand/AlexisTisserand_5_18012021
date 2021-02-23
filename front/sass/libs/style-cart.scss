@@ -68,8 +68,8 @@ label {
 .shopping-cart {
   box-shadow: rgb(96, 21, 110) 0px 20px 30px -10px;
   margin: 50px;
-  border-radius: 50px;
-  background-color: rgba($color: #fff, $alpha: 0.2);
+  border-radius: 10px;
+  background-color: rgba($color: #fff, $alpha: 0.6);
   border: 3px $color-border solid;
   padding: 30px;
 }
@@ -88,14 +88,11 @@ label {
   }
 }
 
-
 /* Product entries */
 .product {
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid $color-border;
-  
-  
   .product-image {
     text-align: center;
     img {
@@ -142,12 +139,12 @@ label {
   }
 }
 
-
 /* Totals section */
 .shopping-cart-footer {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-items: center;
 }
 .total-basket {
   display: flex;
@@ -204,6 +201,7 @@ label {
   outline: none;
 
   &:hover {
+    
     background: #fff;
     color: $tertiary;
   }
@@ -295,8 +293,6 @@ label {
   font-size: 24px;
 }
 
-
-
 hr {
   border: 1px solid lightgrey;
 }
@@ -304,6 +300,7 @@ hr {
 /*PANIER*/
 
 .popout{
+  display: block;
 	font-weight: 900;
 	font-size: 2rem;
 	padding-top: 40px;
@@ -315,16 +312,13 @@ hr {
 
 @media screen and (max-width: 1000px) {
 
-
-
   #link-btn{
-    display: flex;
-    justify-content: center;
     #btn-delete {
       margin: 0;
-      
     }
   }
+
+    
 
   #form{
     max-width: 100%;
@@ -393,6 +387,17 @@ hr {
   
 }
 
+@media screen and (max-width: 500px) {
+  #cart-footer{
+    justify-content: center;
+    #link-btn{
+      #btn-delete {
+        margin: 0;
+      }
+    }
+  }
+}
+
 
 /* Make more adjustments for phone */
 @media screen and (max-width: 350px) {
@@ -421,3 +426,5 @@ hr {
     }
   }
 }
+
+

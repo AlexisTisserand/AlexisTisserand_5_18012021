@@ -1,17 +1,14 @@
 import {api} from "./api.js"
 
- 
 const productList = document.getElementById('productList')
 
-//Requete API
-const url = `https://orinoco-p5-alexis-tisserand.herokuapp.com/api/teddies`; //http://localhost:3000
+//Constante qui correspond à l'url de l'Api sur laquelle on souhaite utiliser fetch()
+const url = `http://localhost:3000/api/teddies/`;
 
-//FONCTION POUR MONTRER LES PRODUITS
-
+//Fonction showProducts() qui permet de faire apparaitre les différents produits de l'Api si la requête fetch() a fonctionné et renvoie erreur 404 si échec
 const showProducts = () => {
     api.fetchEndPoint(url)
     .then(products => {
-        try {
         console.log(products);
         products.forEach(product => {
 
@@ -51,17 +48,13 @@ const showProducts = () => {
         
             `
         })
-    }
-        catch {
-                
-    }
-}) 
-.catch ((err => console.log('Erreur ' + err)))
+    }) 
 }
 showProducts()
 
 //Quand on recharge la page le panier reste à jour
-function onLoadCartnumbers () {
+//Récupère le nombre de produits dans le panier et affiche son nombre dans la span prévue à cet effet ("panier")
+function onLoadCartnumbers() {
     let productNumbers = localStorage.getItem('cartNumbers');
 
     if(productNumbers) {

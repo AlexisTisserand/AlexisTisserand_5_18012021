@@ -173,7 +173,8 @@ main {
     }
 
     .action {
-      #btn-modal {
+      #btn-modal,
+      #btn-add-to-cart {
         box-shadow: rgb(96, 21, 110) 0px 20px 30px -10px;
         cursor: pointer;
         border: 1px solid $tertiary;
@@ -185,7 +186,6 @@ main {
         font-size: 16px;
         transition: 200ms;
         outline: none;
-
         &:hover {
           background: #fff;
           color: $tertiary;
@@ -277,7 +277,7 @@ select {
 //Medium screens
 @media screen and (max-width: 700px) {
   main {
-    width: 80%;
+    width: 100%;
     h3{
       display: none;
     }
@@ -299,10 +299,9 @@ select {
         margin-top: 20px;
         margin-bottom: 20px;
       }
-      
     }
     .description{
-      display: none;
+      display: block;
     }
   }
   .card__footer {
