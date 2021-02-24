@@ -14,7 +14,7 @@ Le projet contient deux dossiers :
 - Prérequis : avoir Node et `npm` installés en local sur votre machine.
 - Installation : clonez ce [repo](https://github.com/OpenClassrooms-Student-Center/JWDP5). Dans le dossier du projet, lancez un `npm install`. Vous pouvez déployer le serveur avec `node server`. Le serveur devrait se lancer automatiquement sur `localhost` avec comme port par défaut `3000`.
 
-##Produit présenté 
+## Produit présenté 
 
 Dans un premier temps, une seule catégorie de produits (parmi 3 propositions : ours en peluche, appareils photos et meubles en chêne) sera présentée. Pour ce projet, le choix se portera sur les **ours en peluche faits à la main**.
 
