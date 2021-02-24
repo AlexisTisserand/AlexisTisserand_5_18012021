@@ -1,4 +1,4 @@
-#Orinoco
+# Orinoco
 
 Cinquième projet du parcours "Développeur Web" proposé par OpenClassrooms. <br>
 L'objectif est de créer un premier MVP du site pour démontrer le fonctionnement de ses applications aux investisseurs de l'entreprise.
@@ -9,7 +9,7 @@ Le projet contient deux dossiers :
 - backend (déjà mis en place et cloné à partir de ce [repository](https://github.com/OpenClassrooms-Student-Center/JWDP5)). Suivre les instructions ci-dessous pour installer le serveur localement.
 - frontend
 
-##Pour installer le backend en local
+## Pour installer le backend en local
 
 - Prérequis
 You will need to have Node and npm installed locally on your machine.
