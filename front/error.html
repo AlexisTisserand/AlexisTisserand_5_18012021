@@ -31,7 +31,7 @@
 	<!--HEADER-->
 	<header>
 		<div class="logo">
-			<a href="index.html" onclick="localStorage.clear()">
+			<a href="index.html" onclick="localStorage.clear()"> <!--A enlever-->
 				<h1>				
 					<img src="img/logo_no_background.png" alt="Logo Orinoco">
 				</h1>
@@ -45,7 +45,8 @@
 		<span>R</span>
 		<span>E</span>
 		<span>U</span>
-        <span>R</span><br>
+        <span>R</span>
+		<br>
         <span>4</span>
         <span>0</span>
         <span>4</span>
@@ -53,9 +54,9 @@
 
     <h3 id="title-error">Oh non ! La page demandée n'existe pas !</h3>
 
-    <a href="index.html"> <button class="show-cart" type="button">Retour à l'accueil</button></a>
+    <button class="show-cart" type="button" onclick="window.location.href='index.html'">Retour à l'accueil</button>
 
-	<footer class="site-footer" style="margin-top: 50px;">
+	<footer class="site-footer" style="margin-top: 50px;"> <!--A enlever-->
 		<ul class="social-icons">
 			<li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
 			<li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>

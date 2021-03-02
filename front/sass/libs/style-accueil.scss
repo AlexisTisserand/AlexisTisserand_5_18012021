@@ -21,7 +21,7 @@ body{
     #a02ae0,
     #8234e5,
     #B7718D,
-    #CB7B56
+    #CB7B56,
   );
   
   font-family: "Montserrat", sans-serif;
@@ -65,6 +65,7 @@ header {
         }
         &.rounded{
           .navbar-tab {
+            display: flex;
             color :white;
             mix-blend-mode: color-dodge;
           }
@@ -173,7 +174,6 @@ header {
 }
 
 .el-wrapper:hover .card-img-product {
-  webkit-filter: blur(7px);
   -o-filter: blur(7px);
   -ms-filter: blur(7px);
   filter: blur(7px);

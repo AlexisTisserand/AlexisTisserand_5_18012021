@@ -2,19 +2,19 @@
 function displayCart () {
     //Récupération de toutes les données nécessaires
     let cartItems = localStorage.getItem("productsInCart");
-    cartItems = JSON.parse(cartItems)
-    let productDiv = document.querySelector(".product")
-    let cartCost = localStorage.getItem('totalCost')
-    let totalBasket = document.getElementById("total-basket")
+    cartItems = JSON.parse(cartItems);
+    let productDiv = document.querySelector(".product");
+    let cartCost = localStorage.getItem('totalCost');
+    let totalBasket = document.getElementById("total-basket");
     let productNumbers = localStorage.getItem('cartNumbers');   
-    productNumbers = parseInt(productNumbers)
+    productNumbers = parseInt(productNumbers);
 
     //si cartItems et productDiv existent alors productDiv s'affiche de manière dynamique avec toutes les caractéristiques des produits choisis
     if (cartItems && productDiv) {
 
         //Vide ces deux divisions pour rajouter les valeurs de façon dynamiques sans rafraichir la page
-        productDiv.innerHTML = ""
-        totalBasket.innerHTML = ""
+        productDiv.innerHTML = "";
+        totalBasket.innerHTML = "";
         
         Object.values(cartItems).forEach((product) => {
 
@@ -40,8 +40,8 @@ function displayCart () {
                 <div class="total-product-price">${(product.inCart * product.price) / 100 + ".00"}</div>
             </div>
             
-            `       
-        })       
+            `;       
+        });       
         
         totalBasket.innerHTML += 
             `
@@ -51,9 +51,9 @@ function displayCart () {
                     <div class="totals-value cart-total">${(cartCost) / 100 + ".00"}</div>
                 </div>
             </div>
-            `          
+            `;          
 
-    } 
+    }
 
     modifyQuantity();
 
@@ -62,16 +62,16 @@ function displayCart () {
 //Modifie la quantité de produits sur la page panier
 function modifyQuantity () {
     
-    let removeProduct = document.querySelectorAll(".remove-product")
-    let addProduct = document.querySelectorAll('.add-product')
-    let quantity = document.getElementsByClassName('change-quantity')
-    let deleteProduct = document.getElementsByClassName('delete-product')
+    let removeProduct = document.querySelectorAll(".remove-product");
+    let addProduct = document.querySelectorAll('.add-product');
+    let quantity = document.getElementsByClassName('change-quantity');
+    let deleteProduct = document.getElementsByClassName('delete-product');
     let cartItems = localStorage.getItem("productsInCart");
-    cartItems = JSON.parse(cartItems)     
+    cartItems = JSON.parse(cartItems);
     let productNumbers = localStorage.getItem('cartNumbers');  
-    productNumbers = parseInt(productNumbers)          
-    let cartCost = localStorage.getItem('totalCost')
-    cartCost = parseInt(cartCost)
+    productNumbers = parseInt(productNumbers) ;         
+    let cartCost = localStorage.getItem('totalCost');
+    cartCost = parseInt(cartCost);
         
     //Augmenter quantité
     for (let i = 0; i < addProduct.length; i++) {
@@ -81,20 +81,20 @@ function modifyQuantity () {
             // si l'événement n'est pas traité explicitement, son action par défaut n'est pas être prise en compte comme elle le serait normalement. L'événement continue à se propager comme d'habitude.
             e.preventDefault();
 
-            let PRODUCT = Object.values(cartItems)[i]
+            let PRODUCT = Object.values(cartItems)[i];
 
             PRODUCT["inCart"] +=  1;
-            localStorage.setItem("productsInCart", JSON.stringify(cartItems))            
-            localStorage.setItem('cartNumbers', productNumbers + 1)           
-            localStorage.setItem("totalCost", cartCost + PRODUCT["price"])
+            localStorage.setItem("productsInCart", JSON.stringify(cartItems));         
+            localStorage.setItem('cartNumbers', productNumbers + 1);     
+            localStorage.setItem("totalCost", cartCost + PRODUCT["price"]);
 
             //Rajoute de manière dynamique dans le HTML +1 à la div "change quantity"
-            quantity[i].innerHTML ++
+            quantity[i].innerHTML ++;
 
             //Appelle la fonction displayCart() à chaque modification de panier ce qui permet de ne pas rafraichir la page.
-            displayCart()
+            displayCart();
 
-        })
+        });
     }
 
     //Réduire quantité
@@ -103,25 +103,25 @@ function modifyQuantity () {
         removeProduct[i].addEventListener('click', (e) => {
 
             e.preventDefault();            
-            let PRODUCT = Object.values(cartItems)[i]
+            let PRODUCT = Object.values(cartItems)[i];
 
             //Condition qui permet de ne pas avoir de valeurs négatives dans le panier et qui oblige l'utilisateur à avoir au minimum 1 article dans le panier du produit qu'il a choisi. S'il désire le supprimer complètement il doit cliquer sur le bouton "Supprimer" à côté de la modification de quantité
             if(PRODUCT["inCart"] > 1) {            
 
                 PRODUCT["inCart"] -=  1;
 
-                localStorage.setItem("productsInCart", JSON.stringify(cartItems))              
-                localStorage.setItem('cartNumbers', productNumbers - 1)
-                localStorage.setItem("totalCost", cartCost - PRODUCT["price"])
+                localStorage.setItem("productsInCart", JSON.stringify(cartItems));             
+                localStorage.setItem('cartNumbers', productNumbers - 1);
+                localStorage.setItem("totalCost", cartCost - PRODUCT["price"]);
 
                 //Rajoute de manière dynamique dans le HTML -1 à la div "change quantity"
-                quantity[i].innerHTML --
+                quantity[i].innerHTML --;
 
                 //Appelle la fonction displayCart() à chaque modification de panier ce qui permet de ne pas rafraichir la page
-                displayCart()
+                displayCart();
 
             }
-        })
+        });
     }
 
     //Supprimer la ligne du produit choisi
@@ -132,25 +132,25 @@ function modifyQuantity () {
 
             e.preventDefault();
             
-            let PRODUCT = Object.values(cartItems)[i] //Renvoie un tableau des valeurs de cartItems et surtout du produit choisi
+            let PRODUCT = Object.values(cartItems)[i]; //Renvoie un tableau des valeurs de cartItems et surtout du produit choisi
             
-            localStorage.setItem("totalCost", cartCost - (PRODUCT["inCart"] * PRODUCT["price"]))   
-            localStorage.setItem('cartNumbers', productNumbers - PRODUCT["inCart"])
+            localStorage.setItem("totalCost", cartCost - (PRODUCT["inCart"] * PRODUCT["price"]));   
+            localStorage.setItem('cartNumbers', productNumbers - PRODUCT["inCart"]);
 
-            PRODUCT["inCart"] = 0
-            localStorage.setItem("productsInCart", JSON.stringify(cartItems))
+            PRODUCT["inCart"] = 0;
+            localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 
             // Retire complètement la propriété de l'objet choisi
-            delete cartItems[Object.keys(cartItems)[i]] 
+            delete cartItems[Object.keys(cartItems)[i]]; 
 
-            localStorage.setItem("productsInCart", JSON.stringify(Object.values(cartItems)))
+            localStorage.setItem("productsInCart", JSON.stringify(Object.values(cartItems)));
 
-            displayCart()
+            displayCart();
 
             //Si l'utisateur clique sur "Supprimer" alors qu'il ne reste qu'un seul produit dans le panier, appelle la fonction clearBasket() qui efface alors le panier entièrement et qui affiche un nouveau bouton de retour à l'accueil. 
-            clearBasket()
+            clearBasket();
             
-        })
+        });
     }
 }
 
@@ -167,54 +167,67 @@ function onLoadCartnumbers () {
 //fonction qui efface le panier au click sur le bouton et affiche un nouveau bouton de retour à l'accueil. S'il existe des valeurs dans le localStorage alors effectue un localStorage.clear() et affiche le nouveau bouton retour accueil
 function clearBasket () {
     let productsNumber = localStorage.getItem("cartNumbers");
-    productsNumber = parseInt(productsNumber)
-    let deleteProductsButton = document.getElementById("btn-delete")
-    let form = document.getElementById("form-order")
-    let total = document.getElementById("total-basket")
-    let label = document.getElementById("columns")
+    productsNumber = parseInt(productsNumber);
+    let deleteProductsButton = document.getElementById("btn-delete");
+    let form = document.getElementById("form-order");
+    let total = document.getElementById("total-basket");
+    let label = document.getElementById("columns");
 
     if(productsNumber) {
-        deleteProductsButton.innerHTML = "Effacer le panier"
-        deleteProductsButton.addEventListener("click", () => {
-            localStorage.clear()
-        })
+        deleteProductsButton.innerHTML = "Effacer le panier";
+        deleteProductsButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            localStorage.clear();
+            window.location.reload()
+        });
+
     } else {
-        deleteProductsButton.innerHTML = "Votre panier est vide ! Cliquez ici pour retourner à vos achats"
-        let shoppingCartFooter = document.getElementById("cart-footer")
-        shoppingCartFooter.style.justifyContent = "center"
-        let linkButton = document.getElementById("link-btn")
-        linkButton.href = "index.html"
-        form.style.display = "none"
-        total.style.display="none"
-        label.style.display = "none"
+        
+        deleteProductsButton.innerHTML = "Votre panier est vide ! Cliquez ici pour retourner à vos achats";
+        let shoppingCartFooter = document.getElementById("cart-footer");
+        shoppingCartFooter.style.justifyContent = "center";
+
+        deleteProductsButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.location.href = 'index.html'
+        })
+        
+        form.style.display = "none";
+        total.style.display="none";
+        label.style.display = "none";
+        
     }
+
+    
 }
+
+displayCart();
 
 //mise en place méthode fetch POST qui envoie des données au serveur
 //Les valeurs des données envoyées sont formatées selon un format qui était donné dans la documentation fournie. Si les données sont valides alors la page confirmation.html s'ouvre avec un récapitulatif de commande. Ce dernier comprend l'orderId, le nom, prénom, adresse, ville et email de l'acheteur. 
 function post() {
 
-    let form = document.getElementById("form")
+    let form = document.getElementById("form");
 
     form.addEventListener('submit', e => {
 
         let cartItems = localStorage.getItem("productsInCart");
-        cartItems = JSON.parse(cartItems)
+        cartItems = JSON.parse(cartItems);
 
         console.log(Object.values(cartItems));
 
-        e.preventDefault()
+        e.preventDefault();
 
-        let firstName = document.getElementById('first-name')
-        let lastName = document.getElementById('last-name')
-        let address = document.getElementById('address')
-        let city = document.getElementById('city')
-        let email = document.getElementById('email')
+        let firstName = document.getElementById('first-name');
+        let lastName = document.getElementById('last-name');
+        let address = document.getElementById('address');
+        let city = document.getElementById('city');
+        let email = document.getElementById('email');
 
         let array = [];
         for (let i = 0; i < Object.values(cartItems).length; i++) {
             let newArray = Object.values(cartItems)[i]._id;
-            array.push(newArray)
+            array.push(newArray);
         }
         
         //fecth post request
@@ -238,11 +251,11 @@ function post() {
             }
         })
         .then(response => {
-            return response.json()
+            return response.json();
         })
         .then(datas => {
             
-            window.location = "/confirmation.html"
+            window.location = "/confirmation.html";
 
             let contact = {
                 firstName: datas.contact.firstName,
@@ -250,17 +263,16 @@ function post() {
                 address: datas.contact.address,
                 city: datas.contact.city,
                 email: datas.contact.email,
-            }
-            contact = JSON.stringify(contact)
-            let cartCost = localStorage.getItem('totalCost')
-            cartCost = parseInt(cartCost)
+            };
+            contact = JSON.stringify(contact);
+            let cartCost = localStorage.getItem('totalCost');
+            cartCost = parseInt(cartCost);
 
             //Stocke les données acheteur dans le localStorage
-            localStorage.setItem("orderId", datas.orderId)
-            localStorage.setItem("contact", contact)
-        })
-
-    })
+            localStorage.setItem("orderId", datas.orderId);
+            localStorage.setItem("contact", contact);
+        });
+    });
 }
 
 onLoadCartnumbers();

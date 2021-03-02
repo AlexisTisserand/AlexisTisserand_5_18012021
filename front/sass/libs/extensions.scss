@@ -4,3 +4,15 @@
     grid-template-rows: 1.5fr 0.5fr;
     gap: 0px 0px;
 }
+
+.group:before,
+.group:after {
+    content: '';
+    display: table;
+} 
+.group:after {
+    clear: both;
+}
+.group {
+    zoom: 1;
+}

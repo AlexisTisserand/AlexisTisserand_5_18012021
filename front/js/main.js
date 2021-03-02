@@ -1,6 +1,6 @@
-import {api} from "./api.js"
+import {api} from "./api.js";
 
-const productList = document.getElementById('productList')
+const productList = document.getElementById('productList');
 
 //Constante qui correspond à l'url de l'Api sur laquelle on souhaite utiliser fetch()
 const url = `http://localhost:3000/api/teddies/`;
@@ -9,7 +9,6 @@ const url = `http://localhost:3000/api/teddies/`;
 const showProducts = () => {
     api.fetchEndPoint(url)
     .then(products => {
-        console.log(products);
         products.forEach(product => {
 
         productList.innerHTML += 
@@ -46,11 +45,11 @@ const showProducts = () => {
                 </div>
             </div>
         
-            `
-        })
-    }) 
-}
-showProducts()
+            `;
+        });
+    });
+};
+showProducts();
 
 //Quand on recharge la page le panier reste à jour
 //Récupère le nombre de produits dans le panier et affiche son nombre dans la span prévue à cet effet ("panier")
@@ -58,8 +57,8 @@ function onLoadCartnumbers() {
     let productNumbers = localStorage.getItem('cartNumbers');
 
     if(productNumbers) {
-        document.querySelector('span').innerHTML = productNumbers;
+        document.querySelector('.productNumbers').innerHTML = productNumbers;
     }
 }
 
-onLoadCartnumbers()
+onLoadCartnumbers();

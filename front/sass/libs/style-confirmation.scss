@@ -1,5 +1,3 @@
-
-
 .summary{
     margin: 50px;
     background-color: rgba($color: $tertiary, $alpha: 0.8);
@@ -20,7 +18,6 @@
             font-weight: bold;
         }
     }
-    
 }
 .summary-container{
     background-image: url(/img/teddy.gif);
@@ -29,7 +26,6 @@
     display: block;
     .summary-div{
         border: 3px white solid;
-
     }
 }
 
@@ -54,9 +50,7 @@
 }
 
 @media screen and (max-width: 1000px) {
-
     .summary {
         margin: 0;
     }
-
 }

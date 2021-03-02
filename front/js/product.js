@@ -1,9 +1,9 @@
 import {api} from "./api.js";
 
-let addedToCart = document.getElementById('form-add-product')
+let addedToCart = document.getElementById('form-add-product');
 let modal = document.getElementById("myModal");
 let cartItems = localStorage.getItem("productsInCart");
-cartItems = JSON.parse(cartItems)
+cartItems = JSON.parse(cartItems);
 
 //Récupérer l'URL et l'ID produit
 const urlActuelle = window.location.href;
@@ -27,11 +27,6 @@ function displayProduct() {
             
             productColors.appendChild(selectColor);
 
-            const askColor = document.createElement('option')
-            askColor.setAttribute("value", "")
-            selectColor.appendChild(askColor)
-            askColor.innerHTML = "Choisissez une couleur"
-
             for(let i = 0; i < product.colors.length; i++) {
                 let choiceColor = document.createElement('option');
                 choiceColor.setAttribute("value", product.colors[i]);
@@ -39,11 +34,11 @@ function displayProduct() {
                 choiceColor.innerHTML = product.colors[i];
             }
 
-            productName.innerHTML = product.name
+            productName.innerHTML = product.name;
             productImage.src = product.imageUrl;
             productPrice.innerText = `${(product.price) / 100 + ".00€"}`; 
             productDescription.innerText = product.description; 
-        })
+        });
 }
 //Fait appraitre le modal sur la page produit lorsqu'on clique sur ajouter au panier
 function initModal() {
@@ -51,13 +46,13 @@ function initModal() {
     let spanCloseModal = document.getElementsByClassName("close")[0];
 
     spanCloseModal.onclick = () => {
-        modal.style.display = "none"
-    }
+        modal.style.display = "none";
+    };
     window.onclick = event => {
         if(event.target == modal) {
-            modal.style.display = "none"
+            modal.style.display = "none";
         }
-    }
+    };
 }
 
 //Fonction addToCart() qui permet d'ajouter un produit au panier. Appelle la fonction cartNumbers() et totalCost(). Si la requête fetch n'aboutit pas, fait apparaitre la page erreur 404
@@ -66,13 +61,13 @@ function initModal() {
 function addToCart() {
     api.fetchEndPoint(`http://localhost:3000/api/teddies/${productId}`)
     .then(product => {
-        product.inCart = 0
-        cartNumbers(product)
-        totalCost(product)
-        modal.style.display = "block"
-        let teddyName = document.getElementById("teddy-name-modal")
-        teddyName.innerText = " " + product.name
-    })
+        product.inCart = 0;
+        cartNumbers(product);
+        totalCost(product);
+        modal.style.display = "block";
+        let teddyName = document.getElementById("teddy-name-modal");
+        teddyName.innerText = " " + product.name;
+    });
 }
 
  //Quand on recharge la page le panier reste à jour
@@ -80,7 +75,7 @@ function onLoadCartnumbers () {
     let productNumbers = localStorage.getItem('cartNumbers');
 
     if(productNumbers) {
-        document.querySelector('span').textContent = productNumbers;
+        document.querySelector('.productNumbers').textContent = productNumbers;
     }
 }
 
@@ -91,14 +86,14 @@ function cartNumbers (product) {
 
     //console.log("Le produit envoyé au panier est", product.name); //Affiche le produit que j'ai choisi
     let productNumbers = localStorage.getItem('cartNumbers');
-    productNumbers = parseInt(productNumbers)               
+    productNumbers = parseInt(productNumbers);            
 
     if (productNumbers) {
         localStorage.setItem('cartNumbers', productNumbers + 1);
-        document.querySelector('span').textContent = productNumbers + 1;
+        document.querySelector('.productNumbers').textContent = productNumbers + 1;
     } else {
         localStorage.setItem('cartNumbers', 1);
-        document.querySelector('span').textContent = 1;
+        document.querySelector('.productNumbers').textContent = 1;
     }
 
     //Ajouter les données du produit choisi dans le localStorage
@@ -111,15 +106,15 @@ function cartNumbers (product) {
 function setItems(product) {
 
     //check s'il existe déjà des items dans le panier
-    let cartItems = localStorage.getItem('productsInCart')
-    cartItems = JSON.parse(cartItems)
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems);
     
     if (cartItems != null) { 
         if ( cartItems[product.name] == null) {
             cartItems = {
                 ...cartItems,
                 [product.name]: product
-            }
+            };
         }
         cartItems[product.name].inCart += 1 ;
        //console.log(cartItems[product.name].inCart);
@@ -129,10 +124,10 @@ function setItems(product) {
         product.inCart = 1;
         cartItems = {
             [product.name]: product //Pareil que "Arnold"
-        }
+        };
     }
     
-    localStorage.setItem("productsInCart", JSON.stringify(cartItems))
+    localStorage.setItem("productsInCart", JSON.stringify(cartItems));
     
 }           
 
@@ -141,21 +136,21 @@ function totalCost(product) {
 
     console.log("Le prix du produit est", product.price);
 
-    let cartCost = localStorage.getItem('totalCost')
+    let cartCost = localStorage.getItem('totalCost');
     
     if(cartCost != null) {
-        cartCost = parseInt(cartCost) //cartCost est string il faut le convertir en number
-        localStorage.setItem("totalCost", cartCost + product.price) 
+        cartCost = parseInt(cartCost); //cartCost est string il faut le convertir en number
+        localStorage.setItem("totalCost", cartCost + product.price);
 
     } else {
-        localStorage.setItem('totalCost', product.price)
+        localStorage.setItem('totalCost', product.price);
     }
 }
 //Lorsque l'action submit est provoquée par le click de l'utilisateur sur le bouton alors la fonction addToCart() est lancée et le produit est envoyé au panier
 addedToCart.addEventListener('submit', (e) => {
     e.preventDefault();
     addToCart();
-})
+});
 
 displayProduct();
 initModal();
