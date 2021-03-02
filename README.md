@@ -33,7 +33,7 @@ Le tableau des produits envoyé au back-end doit être un array de strings produ
 
 ## Planification de tests unitaires 
 
-Le plan de tests unitaires se trouve [ici](https://docs.google.com/spreadsheets/d/1G3iU2fb5bTMHGX8S7QC1u572WISqx4OatUMIJC9st0I/edit?usp=sharing).
+Le plan de tests unitaires se trouve [ici](https://docs.google.com/spreadsheets/d/1gbug1sBHC3CSbrUHd7P8pSK1rCa0-j2UyDrdm1Y8xd8/edit?usp=sharing).
 Ce plan de tests doit couvrir au minimum 80% de la base de code pour le front-end.
 
 ## Informations complémentaires
